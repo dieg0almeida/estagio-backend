@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Kulim+Park|Roboto&display=swap');
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+
+#emptyFields p {
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 1px #111111;
+  position: absolute;
+}
+
+.form {
+  
+  border-radius: 6px;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(to top, #daa520 0%, #0000ff 100%);
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  
+}
+
+.form h2 {
+  color: white;
+  border: 0;
+  padding: 15px;
+}
+.form input {
+  border-radius: 6px;
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.form button {
+  border-radius: 6px;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: rgb(48, 97, 50);
+}
+.form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+footer p {
+  text-align: center;
+  font-size: 12px;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(to top, #daa520 0%, #0000ff 100%);
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; 
+     
+}
+
+img{
+  justify-self: center;
+  padding-bottom: 30px;
+  width: 96px;
+  height: 72px;
+  object-fit: contain;
+}
+
+

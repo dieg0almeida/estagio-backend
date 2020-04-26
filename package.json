@@ -1,0 +1,25 @@
+{
+  "name": "estagio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.1.0",
+    "nunjucks": "^3.2.1"
+  },
+  "devDependencies": {
+    "faker": "^4.1.0",
+    "nodemon": "^2.0.2"
+  }
+}

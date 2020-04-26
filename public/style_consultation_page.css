@@ -1,0 +1,434 @@
+
+@import url('https://fonts.googleapis.com/css?family=Kulim+Park|Roboto&display=swap');
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+body, html {
+    background: linear-gradient(to top,  #daa520 20%, #0000ff 89%, #0000a4);
+  
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+	height: auto;
+	font-family: sans-serif;
+}
+
+/* ------------------------------------ */
+
+
+
+
+/* Style the navigation bar */
+.navbar {
+  width: 100%;
+  height: 90px;
+  background-color: rgba(0,0,0,0.0);;
+  overflow: hidden;
+
+   
+}
+
+/* Style the empty fields */
+#emptyFields p {
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 1px #111111;
+}
+
+
+/* STYLE DA IMAGEM DA LOGO NA NAVBAR */
+.navbar a#logo.active img{
+
+    width: 100px;
+    height: 60px;
+    object-fit: cover;
+
+   
+}
+
+/* Espaço da navbar para a logo */
+.navbar a{
+    
+  float: left;
+  text-align: center;
+  padding: 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+   
+}
+
+
+/* Icone do Usuario */
+.navbar a#usericon {
+  float: right;
+  text-align: center;
+  padding: 25px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+    
+}
+
+
+/* Navbar links */
+.navbar a#navicon {
+  float: left;
+  text-align: center;
+  padding: 30px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+    
+}
+
+
+
+/* Navbar links on mouse-over */
+.navbar a:hover {
+  background-color: darkblue;
+}
+
+/* Current/active navbar link */
+
+
+/* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+@media screen and (max-width: 500px) {
+  .navbar  {
+    float: none;
+    display: block;
+  }
+}
+
+
+
+
+
+
+
+/*BOTÃO DE BUSCA FILTRAR AO LADO DO TEXTO*/
+.buttonsearch {
+  background-color: transparent; /* Green */
+  border-style: solid;
+  
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: white;
+  padding: 12px 20px;
+    
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.buttonsearch:hover {
+  background-color: green;
+ 
+  cursor: pointer;
+}
+
+.button {
+  background-color: purple;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+/*[ Table ]*/
+
+.limiter {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container-table {
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 33px 30px;
+     
+}
+
+
+
+.wrap-table {
+    
+  width: 960px;
+  border-radius: 1px;
+  overflow: hidden;
+
+}
+
+.table {
+  width: 100%;
+  display: table;
+  margin: auto;
+   
+      
+      
+    
+  
+}
+
+@media screen and (max-width: 768px) {
+  .table {
+    display: block;
+
+  }
+}
+
+.row {
+  display: table-row;
+  background: #fff;
+    
+  
+}
+
+.row.header {
+  color: #ffffff;
+  background: transparent;
+  border-color: white !important;
+    
+    
+  
+}
+
+@media screen and (max-width: 768px) {
+  .row {
+    display: block;
+  }
+
+  .row.header {
+    padding: 0;
+    height: 0px;
+    
+  }
+
+  .row.header .cell {
+    display: none;
+  }
+
+  .row .cell:before {
+    font-family: Poppins-Bold;
+    font-size: 12px;
+    color: #808080;
+    line-height: 1.2;
+    text-transform: uppercase;
+    font-weight: unset !important;
+
+    margin-bottom: 13px;
+    content: attr(data-title);
+    min-width: 98px;
+    display: block;
+  }
+}
+
+.cell {
+  display: table-cell;
+}
+
+@media screen and (max-width: 768px) {
+  .cell {
+    display: block;
+  }
+}
+
+#title{
+    color: white;
+    text-align: center;
+}
+.row .cell {
+  font-family: Poppins-Regular;
+  font-size: 15px;
+  color: #666666;
+  line-height: 1.2;
+  font-weight: unset !important;
+  
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.row.header .cell {
+  font-family: Poppins-Regular;
+  font-size: 18px;
+  color: #fff;
+  line-height: 1.2;
+  font-weight: unset !important;
+  border-color: white !important;
+  padding-top: 19px;
+  padding-bottom: 19px;
+}
+/*tira as linhas das tabelas*/
+div.cell{
+    border-style: none !important ;
+}
+
+.row .cell:nth-child(1) {
+  width: 100px;
+  padding-left: 40px;
+     
+    
+}
+
+.row .cell:nth-child(2) {
+  width: 250px;
+}
+
+.row .cell:nth-child(3) {
+  width: 160px;
+}
+
+.row .cell:nth-child(4) {
+  width: 190px;
+}
+
+.row .cell:nth-child(5) {
+  width: 190px;
+}
+.row .cell:nth-child(6) {
+  width: 190px;
+    text-align: center;
+
+}
+
+.table, .row {
+  width: 100% !important;
+}
+
+.row:hover {
+  background-color: skyblue;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .row {
+    border-bottom: 1px solid #f2f2f2;
+    padding-bottom: 18px;
+    padding-top: 30px;
+    padding-right: 15px;
+    margin: 0;
+  }
+
+  .row .cell {
+    border: none;
+    padding-left: 30px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  .row .cell:nth-child(1) {
+    padding-left: 30px;
+  }
+
+  .row .cell {
+    font-family: Poppins-Regular;
+    font-size: 18px;
+    color: #555555;
+    line-height: 1.2;
+    font-weight: unset !important;
+  }
+
+  .table, .row, .cell {
+    width: 100% !important;
+  }
+}
+form {
+    padding-top: 10px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+
+/* Aqui é a linha branca da parte transparente da tabela*/
+div#tableheader.cell{
+    border-width: 0.5px;  
+    border-top-style: solid !important;
+    
+}
+
+div#tableheaderleft.cell{
+    border-width: 0.5px;  
+    border-top-style: solid !important;
+    border-left-style:solid !important;
+    
+}
+
+div#tableheaderright.cell{
+    border-width: 0.5px;  
+    border-top-style: solid !important;
+    border-right-style:solid !important;
+    
+}
+
+
+
+
+
+
+/*Aqui vem o footer */
+
+footer{
+    
+  background: #212529;
+  height: 90px;
+  
+  width: 100%;
+  color: white;
+  display: flex;
+    
+  
+}
+
+section#copyright{
+    text-align: left;
+    padding-left: 20px;
+    padding-top: 20px;
+    width: 50%;
+    
+}
+
+section#contato{
+    padding-top: 10px;
+    text-align: center;
+    padding-left: 80px;
+    width: 50%;
+}
+
+input[type=text] {
+  width: 250px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+ 
+border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+  width: 80%;
+}
+
