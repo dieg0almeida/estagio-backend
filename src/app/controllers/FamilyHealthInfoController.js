@@ -1,5 +1,4 @@
 const FamilyHealthInfo = require('../models/FamilyHealthInfo');
-const seeder = require('../seeders/familyhealthinfo');
 
 module.exports = {
   async index(req, res) {
@@ -14,13 +13,12 @@ module.exports = {
     return res.json({ familyHealthInfo });
   },
   async post(req, res) {
-    await FamilyHealthInfo.create(seeder.generate());
-    //await FamilyHealthInfo.create(req.body);
+    await FamilyHealthInfo.create(req.body);
 
     const results = await FamilyHealthInfo.findLastInsert();
 
     const { family_health_info_id } = results[0][0];
-    return res.redirect(`/familyhealth/${family_health_info_id}`);
+    return res.redirect(`/familyhealthinfo/${family_health_info_id}`);
   },
   async put(req, res) {
     await FamilyHealthInfo.update(req.body, req.params.id);

@@ -1,5 +1,4 @@
 const FamilyMembers = require('../models/FamilyMembers');
-const seeder = require('../seeders/familyMembers');
 
 module.exports = {
   async index(req, res) {
@@ -12,8 +11,7 @@ module.exports = {
     return res.json({ familyMembers });
   },
   async post(req, res) {
-    // await FamilyMembers.create(req.body);
-    await FamilyMembers.create(seeder.generate());
+     await FamilyMembers.create(req.body);
     const results = await FamilyMembers.findLastInsert();
     const { family_members_id } = results[0][0];
 
