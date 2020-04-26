@@ -1,5 +1,4 @@
 const Property = require('../models/PropertyInfo');
-const seeder = require('../seeders/propertyinfo');
 
 module.exports = {
   async index(req, res) {
@@ -14,8 +13,7 @@ module.exports = {
     return res.json({ propertyInfo });
   },
   async post(req, res) {
-    await Property.create(seeder.generate()/*inject fake information*/);
-    // await Property.create(req.body);
+    await Property.create(req.body);
 
 
     const results = await Property.findLastInsert();
