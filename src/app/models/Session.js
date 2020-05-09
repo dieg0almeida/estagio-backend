@@ -11,8 +11,8 @@ module.exports = {
             return;
         } else {
             const query = `UPDATE users SET
-                passwordResetToken = ?,
-                passwordResetExpires = ?
+                passwordresettoken = ?,
+                passwordresetexpires = ?
                 WHERE user_id = ?`;
 
             const values = [
@@ -41,6 +41,6 @@ module.exports = {
             user.user_id
         ];
  */
-        return db.promise().query(`UPDATE users SET password = '${password}', passwordResetToken = ${null}, passwordResetExpires = ${null} WHERE user_id = ${user.user_id}`);
+        return db.promise().query(`UPDATE users SET password = '${password}', passwordresettoken = ${null}, passwordresetexpires = ${null} WHERE user_id = ${user.user_id}`);
     }
 }
