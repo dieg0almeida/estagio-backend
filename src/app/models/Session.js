@@ -27,9 +27,9 @@ module.exports = {
     },
     async update(user) {
         let password = await hash(user.password, 8)
-        /* METODO COMENTADO NÃO FUNCIONA IDK WHY
+
         const query = `UPDATE users SET
-                password,
+                password = ?,
                 passwordResetToken = ?,
                 passwordResetExpires = ?
                 WHERE user_id = ?`;
@@ -40,7 +40,7 @@ module.exports = {
             null,
             user.user_id
         ];
- */
-        return db.promise().query(`UPDATE users SET password = '${password}', passwordresettoken = ${null}, passwordresetexpires = ${null} WHERE user_id = ${user.user_id}`);
+
+        return db.promise().query(query, values);
     }
 }

@@ -71,6 +71,7 @@ module.exports = {
             const results = await Session.findByEmail(email);
             const user = results[0][0];
 
+
             if (!user) return res.status(400).send({ error: 'User not found' });
 
             if (token !== user.passwordResetToken) {
