@@ -2,14 +2,14 @@ const FamilyInfo = require('../models/FamilyInfo');
 
 module.exports = {
     async index(req, res){
-        const results = await FamilyInfo.all();
+        const results = await FamilyInfo.all(req.query.page);
 
         return res.json({ FamilyInfo: results[0] });
     },
     async show(req, res){
         const results = await FamilyInfo.findById(req.params.id);
         const familyinfo = results[0][0];
-        
+
         return res.json({ familyinfo });
     },
     async post(req, res){

@@ -12,8 +12,8 @@ module.exports = {
             email,
             password,
             is_admin
-        ) 
-        VALUES 
+        )
+        VALUES
         (?, ?, ?)`;
 
         let password = await hash(user.password, 8);
@@ -50,8 +50,8 @@ module.exports = {
     destroy(user_id) {
         return db.promise().query(`DELETE FROM users WHERE user_id = ${user_id}`);
     },
-    all() {
-        const query = 'SELECT * FROM users';
+    all(page) {
+        const query = `SELECT * FROM users LIMIT 10 OFFSET ${(page - 1) * 10}`;
         return db.promise().query(query);
     }
 }

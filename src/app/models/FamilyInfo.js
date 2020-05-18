@@ -1,23 +1,22 @@
 const db = require('../../config/db');
 
 module.exports = {
-    all() {
-        return db.promise().query('SELECT * FROM family_info');
+    all(page) {
+        return db.promise().query(`SELECT * FROM family_info LIMIT 10 ${(page - 1) * 10}`);
     },
     findById(family_info_id) {
         return db.promise().query(`SELECT * FROM family_info WHERE family_info_id = ${family_info_id}`);
     },
     create(family_info) {
-        const query = `INSERT INTO family_info 
+        const query = `INSERT INTO family_info
         (
             owner_id,
             origin_city,
             state,
             city_residence_time,
             home_residence_time
-            
-        ) 
-        VALUES 
+        )
+        VALUES
         ( ?, ?, ?, ?, ?)`;
 
         const values = [
@@ -47,7 +46,7 @@ module.exports = {
             family_info.origin_city ,
             family_info.state ,
             family_info.city_residence_time,
-            family_info.home_residence_time, 
+            family_info.home_residence_time,
             family_info_id
         ];
 

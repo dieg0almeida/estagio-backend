@@ -2,7 +2,7 @@ const AddFamilyInfo = require('../models/AddFamilyInfo');
 
 module.exports = {
     async index(req, res){
-        const results = await AddFamilyInfo.all();
+        const results = await AddFamilyInfo.all(req.query.page);
 
         return res.json({ AddFamilyInfo: results[0] });
     },

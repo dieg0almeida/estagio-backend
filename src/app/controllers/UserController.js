@@ -2,7 +2,7 @@ const User = require('../models/User');
 
 module.exports = {
     async index(req, res) {
-        const results = await User.all();
+        const results = await User.all(req.query.page);
 
         return res.json({ User: results[0] });
     },

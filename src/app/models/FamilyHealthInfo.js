@@ -1,8 +1,8 @@
 const db = require('../../config/db');
 
 module.exports = {
-  all() {
-    return db.promise().query('SELECT * FROM family_health_info');
+  all(page) {
+    return db.promise().query(`SELECT * FROM family_health_info LIMIT 10 OFFSET ${(page - 1) * 10}`);
   },
   findById(family_health_info_id) {
     return db
@@ -12,10 +12,10 @@ module.exports = {
       );
   },
   create(family_health_info) {
-    const query = `INSERT INTO family_health_info 
+    const query = `INSERT INTO family_health_info
         (
-            owner_id, 
-            family_members_count, 
+            owner_id,
+            family_members_count,
             sickness,
             has_death_in_last_two_years,
             deaths_two_years_cause,
@@ -24,8 +24,8 @@ module.exports = {
             has_old_people,
             old_people_count,
             health_add_info
-        ) 
-        VALUES 
+        )
+        VALUES
         (?,?,?,?,?,?,?,?,?,?)`;
 
     const values = [
@@ -52,8 +52,8 @@ module.exports = {
   },
   update(family_health_info, family_health_info_id) {
     const query = `UPDATE family_health_info SET
-            owner_id = ?, 
-            family_members_count = ?, 
+            owner_id = ?,
+            family_members_count = ?,
             sickness = ?,
             has_death_in_last_two_years = ?,
             deaths_two_years_cause = ?,

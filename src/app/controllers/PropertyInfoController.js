@@ -2,7 +2,7 @@ const Property = require('../models/PropertyInfo');
 
 module.exports = {
   async index(req, res) {
-    const results = await Property.all();
+    const results = await Property.all(req.query.page);
 
     return res.json({ propertyInfo: results[0] });
   },

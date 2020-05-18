@@ -1,8 +1,8 @@
 const db = require('../../config/db');
 
 module.exports = {
-    all() {
-        return db.promise().query('SELECT * FROM owners');
+    all(page) {
+        return db.promise().query(`SELECT * FROM owners LIMIT 10 OFFSET ${(page - 1) * 10}`);
     },
     findById(owner_id) {
         return db.promise().query(
@@ -105,34 +105,34 @@ module.exports = {
         );
     },
     create(owner) {
-        const query = `INSERT INTO owners 
+        const query = `INSERT INTO owners
         (
-            name, 
-            mother_name, 
-            father_name, 
-            rg, 
-            rg_expedition, 
-            cpf, 
-            birth, 
-            nationality, 
-            marital_status, 
-            marital_property_systems, 
-            ocupacy_situation, 
-            job, 
-            literate, 
-            company_job, 
-            clt, 
-            earning, 
-            address, 
-            square, 
-            lot, 
-            landmark, 
-            district, 
-            city, 
-            cell_phone_number, 
+            name,
+            mother_name,
+            father_name,
+            rg,
+            rg_expedition,
+            cpf,
+            birth,
+            nationality,
+            marital_status,
+            marital_property_systems,
+            ocupacy_situation,
+            job,
+            literate,
+            company_job,
+            clt,
+            earning,
+            address,
+            square,
+            lot,
+            landmark,
+            district,
+            city,
+            cell_phone_number,
             phone_number
-        ) 
-        VALUES 
+        )
+        VALUES
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
         const values = [
@@ -169,29 +169,29 @@ module.exports = {
     },
     update(owner, owner_id) {
         const query = `UPDATE owners SET
-            name = ?, 
-            mother_name = ?, 
-            father_name = ?, 
-            rg = ?, 
-            rg_expedition = ?, 
-            cpf = ?, 
-            birth = ?, 
-            nationality = ?, 
-            marital_status = ?, 
-            marital_property_systems = ?, 
-            ocupacy_situation = ?, 
-            job = ?, 
-            literate = ?, 
-            company_job = ?, 
-            clt = ?, 
-            earning = ?, 
-            address = ?, 
-            square = ?, 
-            lot = ?, 
-            landmark = ?, 
-            district = ?, 
-            city = ?, 
-            cell_phone_number = ?, 
+            name = ?,
+            mother_name = ?,
+            father_name = ?,
+            rg = ?,
+            rg_expedition = ?,
+            cpf = ?,
+            birth = ?,
+            nationality = ?,
+            marital_status = ?,
+            marital_property_systems = ?,
+            ocupacy_situation = ?,
+            job = ?,
+            literate = ?,
+            company_job = ?,
+            clt = ?,
+            earning = ?,
+            address = ?,
+            square = ?,
+            lot = ?,
+            landmark = ?,
+            district = ?,
+            city = ?,
+            cell_phone_number = ?,
             phone_number = ?
             WHERE owner_id = ?`;
 

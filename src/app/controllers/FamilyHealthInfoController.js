@@ -2,7 +2,7 @@ const FamilyHealthInfo = require('../models/FamilyHealthInfo');
 
 module.exports = {
   async index(req, res) {
-    const results = await FamilyHealthInfo.all();
+    const results = await FamilyHealthInfo.all(req.query.page);
 
     return res.json({ familyHealthInfo: results[0] });
   },

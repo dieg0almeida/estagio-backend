@@ -2,7 +2,7 @@ const Owner = require('../models/Owner');
 
 module.exports = {
     async index(req, res){
-        const results = await Owner.all();
+        const results = await Owner.all(req.query.page);
 
         return res.json({ owners: results[0] });
     },

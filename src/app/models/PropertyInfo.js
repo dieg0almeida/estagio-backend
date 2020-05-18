@@ -1,8 +1,8 @@
 const db = require('../../config/db');
 
 module.exports = {
-  all() {
-    return db.promise().query('SELECT * FROM property_info');
+  all(page) {
+    return db.promise().query(`SELECT * FROM property_info LIMIT 10 OFFSET ${(page - 1) * 10}`);
   },
   findById(property_info_id) {
     return db
@@ -12,24 +12,24 @@ module.exports = {
       );
   },
   create(property) {
-    const query = `INSERT INTO property_info 
+    const query = `INSERT INTO property_info
         (
-            owner_id, 
-            construction, 
+            owner_id,
+            construction,
             finish,
             drinking_water,
             sewage,
             electric_power,
             trash_destiny,
-            property_type, 
+            property_type,
             lot_condition,
             lot_occupacy_number,
             has_another_property,
             has_iptu,
             iptu_holder,
             property_documentation
-        ) 
-        VALUES 
+        )
+        VALUES
         (?,?,?,?,?,?,?,?,?,?,?,?,?,?)`;
 
     const values = [
@@ -60,14 +60,14 @@ module.exports = {
   },
   update(property, property_info_id) {
     const query = `UPDATE property_info SET
-            owner_id = ?, 
-            construction = ?, 
+            owner_id = ?,
+            construction = ?,
             finish = ?,
             drinking_water = ?,
             sewage = ?,
             electric_power = ?,
             trash_destiny = ?,
-            property_type = ?, 
+            property_type = ?,
             lot_condition = ?,
             lot_occupacy_number = ?,
             has_another_property = ?,

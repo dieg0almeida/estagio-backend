@@ -1,8 +1,8 @@
 const db = require('../../config/db');
 
 module.exports = {
-  all() {
-    return db.promise().query('SELECT * FROM family_members');
+  all(page) {
+    return db.promise().query(`SELECT * FROM family_members LIMIT 10 OFFSET ${(page - 1) * 10}`);
   },
   findById(family_members_id) {
     return db.promise().query(`SELECT * FROM family_members WHERE family_members_id = ${family_members_id}`);

@@ -2,7 +2,7 @@ const SocialGovernmentPrograms = require('../models/SocialGovernmentPrograms');
 
 module.exports = {
   async index(req, res) {
-    const results = await SocialGovernmentPrograms.all();
+    const results = await SocialGovernmentPrograms.all(req.query.page);
     return res.json({ socialGovernmentPrograms: results[0] });
   },
   async show(req, res) {
@@ -14,7 +14,7 @@ module.exports = {
     await SocialGovernmentPrograms.create(req.body);
     const results = await SocialGovernmentPrograms.findLastInsert();
     const { social_government_programs_id } = results[0][0];
-    
+
     return res.redirect(`/social_government_programs/${social_government_programs_id}`);
   },
   async put(req, res) {

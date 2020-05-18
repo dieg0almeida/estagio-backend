@@ -2,7 +2,7 @@ const FamilyMembers = require('../models/FamilyMembers');
 
 module.exports = {
   async index(req, res) {
-    const results = await FamilyMembers.all();
+    const results = await FamilyMembers.all(req.query.page);
     return res.json({ familyMembers: results[0] });
   },
   async show(req, res) {
