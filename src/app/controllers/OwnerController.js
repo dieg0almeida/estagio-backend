@@ -8,7 +8,7 @@ module.exports = {
     },
     async show(req, res){
         const results = await Owner.findById(req.params.id);
-        const raw_info = results[0][0];
+        const tables_info = results[0][0][0];
         const owner_info = {
             owner: {},
             add_family_info: {},
@@ -16,27 +16,37 @@ module.exports = {
             family_info: {},
             owners_partners: {},
             property_info: {},
+            family_members: [],
+            social_government_programs: [],
         };
 
-        for (let name of Object.getOwnPropertyNames(raw_info)) {
-            if (name.startsWith('owner_')) {
-                owner_info.owner[name.replace('owner_', '')] = raw_info[name];
-            }
-            else if (name.startsWith('add_family_info_')) {
-                owner_info.add_family_info[name.replace('add_family_info_', '')] = raw_info[name];
-            }
-            else if (name.startsWith('family_health_info_')) {
-                owner_info.family_health_info[name.replace('family_health_info_', '')] = raw_info[name];
-            }
-            else if (name.startsWith('family_info_')) {
-                owner_info.family_info[name.replace('family_info_', '')] = raw_info[name];
-            }
-            else if (name.startsWith('owners_partners_')) {
-                owner_info.owners_partners[name.replace('owners_partners_', '')] = raw_info[name];
-            }
-            else if (name.startsWith('property_info_')) {
-                owner_info.property_info[name.replace('property_info_', '')] = raw_info[name];
-            }
+        if (tables_info.owner_index == -1) {
+            return res.json({ owner_info });
+        }
+        else {
+            owner_info.owner = results[0][1][0];
+        }
+
+        if (tables_info.add_family_info_index > 1) {
+            owner_info.add_family_info = results[0][2][0];
+        }
+        if (tables_info.family_health_info_index > 1) {
+            owner_info.family_health_info = results[0][tables_info.family_health_info_index][0];
+        }
+        if (tables_info.family_info_index > 1) {
+            owner_info.family_info = results[0][tables_info.family_info_index][0];
+        }
+        if (tables_info.owners_partners_index > 1) {
+            owner_info.owners_partners = results[0][tables_info.owners_partners_index][0];
+        }
+        if (tables_info.property_info_index > 1) {
+            owner_info.property_info = results[0][tables_info.property_info_index][0];
+        }
+        if (tables_info.family_members_index > 1) {
+            owner_info.family_members = results[0][tables_info.family_members_index];
+        }
+        if (tables_info.social_government_programs_index > 1) {
+            owner_info.social_government_programs = results[0][tables_info.social_government_programs_index];
         }
 
         return res.json({ owner_info });
