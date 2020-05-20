@@ -1,5 +1,3 @@
-const User = require('../app/controllers/UserController');
-const mUser = require('../app/models/User');
 const db = require('../config/db');
 
 module.exports = {
@@ -14,19 +12,19 @@ module.exports = {
 
         if (user.is_admin == true) {
             if (user_id == delete_id) {
-                return res.json({ erro: "Admin can't delete you account" });
+                return res.json({ erro: "Administrador não pode deletar a propria conta" });
             } else {
                 next();
             }
         } else {
-            return res.json({ erro: "Operator not Autorized" });
+            return res.json({ erro: "Usuário não Autorizado" });
         }
     },
     async isAdmin(req, res, next) {
 
         const user_id = req.session.user_id;
         if (!user_id) {
-            return res.json({ erro: "Please Login" });
+            return res.json({ erro: "Por Favor Efetue o Login" });
         }
 
         const ver = await db.promise().query(`SELECT * FROM users WHERE user_id = ${user_id}`);
@@ -36,7 +34,14 @@ module.exports = {
         if (user.is_admin == true) {
             next();
         } else {
-            return res.json({ erro: "You don't have permission!" });
+            return res.json({ erro: "Você não tem permissão para acessar esta página" });
         }
+    },
+    async isConnected(req, res, next) {
+        const user_id = req.session.user_id;
+        if (!user_id) {
+            return res.json({ erro: "Por Favor Efetue o Login" });
+        }
+        next();
     }
 }
