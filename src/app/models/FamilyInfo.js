@@ -2,7 +2,7 @@ const db = require('../../config/db');
 
 module.exports = {
     all(page) {
-        return db.promise().query(`SELECT * FROM family_info LIMIT 10 ${(page - 1) * 10}`);
+        return db.promise().query(`SELECT * FROM family_info LIMIT 10 OFFSET ${(page - 1) * 10}`);
     },
     findById(family_info_id) {
         return db.promise().query(`SELECT * FROM family_info WHERE family_info_id = ${family_info_id}`);

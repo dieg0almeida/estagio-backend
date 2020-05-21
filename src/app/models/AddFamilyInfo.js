@@ -2,7 +2,7 @@ const db = require('../../config/db');
 
 module.exports = {
     all(page) {
-        return db.promise().query(`SELECT * FROM add_family_info LIMIT 10 ${(page - 1) * 10}`);
+        return db.promise().query(`SELECT * FROM add_family_info LIMIT 10 OFFSET ${(page - 1) * 10}`);
     },
     findById(add_family_info_id) {
         return db.promise().query(`SELECT * FROM add_family_info WHERE add_family_info_id = ${add_family_info_id}`);
@@ -14,7 +14,7 @@ module.exports = {
             has_knowledge_community_members,
             has_associate_community_meeting,
             work_community_priorities,
-            has_socail_government_programs
+            has_social_government_programs
         )
         VALUES
         (?, ?, ?, ?, ?)`;
@@ -24,7 +24,7 @@ module.exports = {
             add_family_info.has_knowledge_community_members ,
             add_family_info.has_associate_community_meeting ,
             add_family_info.work_community_priorities,
-            add_family_info.has_socail_government_programs,
+            add_family_info.has_social_government_programs,
         ];
 
         return db.promise().query(query, values);
@@ -38,7 +38,7 @@ module.exports = {
             has_knowledge_community_members = ?,
             has_associate_community_meeting = ?,
             work_community_priorities = ?,
-            has_socail_government_programs = ?,
+            has_social_government_programs = ?,
             WHERE add_family_info_id = ?`;
 
         const values = [
@@ -46,7 +46,7 @@ module.exports = {
             add_family_info.has_knowledge_community_members ,
             add_family_info.has_associate_community_meeting ,
             add_family_info.work_community_priorities,
-            add_family_info.has_socail_government_programs,
+            add_family_info.has_social_government_programs,
         ];
 
         return db.promise().query(query, values);

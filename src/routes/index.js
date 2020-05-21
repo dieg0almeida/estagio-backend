@@ -1,6 +1,8 @@
 const express = require('express');
 const routes = express.Router();
 
+const auth = require('../config/auth');
+
 const addFamilyInfo = require('./addFamilyInfo');
 const familyInfo = require('./familyInfo');
 const familyHealthInfo = require('./familyHealthInfo');
@@ -11,6 +13,7 @@ const socialGovernmentPrograms = require('./socialGovernmentPrograms');
 const user = require('./user');
 const session = require('./session');
 
+routes.use(auth.authorize);
 routes.use('/addfamilyinfo', addFamilyInfo);
 routes.use('/familyinfo', familyInfo);
 routes.use('/familyHealthInfo', familyHealthInfo);
