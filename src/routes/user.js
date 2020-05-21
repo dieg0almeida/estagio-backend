@@ -13,6 +13,7 @@ routes.get('/users/:id', middleUser.isAdmin, UserController.show); //Mostra os d
 routes.put('/users/:id', validatorUser.post, middleUser.isAdmin, UserController.put); // Editar um usuário
 routes.delete('/users/:id', middleUser.delete, UserController.delete); // Deletar um usuário
 
-routes.put('/profile', middleUser.isConnected, validatorUser.post, ProfileController.put);// Editar o usuário logado
+routes.put('/profile', validatorUser.post, ProfileController.put);// Editar o usuário logado
+routes.get('/profile', ProfileController.show);
 
 module.exports = routes;
