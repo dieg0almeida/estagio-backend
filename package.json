@@ -15,7 +15,7 @@
     "body-parser": "^1.19.0",
     "connect-mysql2": "^2.2.6",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-mysql-session": "^2.1.4",
     "express-session": "^1.17.1",
     "jsonwebtoken": "^8.5.1",
